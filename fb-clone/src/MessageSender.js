@@ -34,7 +34,7 @@ function MessageSender() {
                 placeholder='image URL (Optional)'/>
 
                 <button onClick={handleSubmit} type="submit">
-                    Hidden submit
+                Hidden submit
                 </button>
             </form>
         </div>
