@@ -3,15 +3,22 @@ import React from 'react';
 import './Login.css';
 import { auth } from './firebase';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { actionTypes } from './reducer';
+import { useStateValue } from './StateProvider';
 
 
 function Login() {
+    const [state, dispatch] = useStateValue();
 
     const signInWithGoogle =() => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-        .then((result)=>{
-            console.log(result)
+        .then((result) => {
+            
+            dispatch({
+                type: actionTypes.SET_USER,
+                user: result.user,
+            });
         })
         .catch((error)=> alert(error.message));
     };

@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Post.css';
 
 
-function Post({profilePic, image, username, timeStamp, message }) {
+function Post({profilePic, image, username, timestamp, message }) {
   return (
     <div className='post'>
         <div className="post__top">
@@ -16,7 +16,7 @@ function Post({profilePic, image, username, timeStamp, message }) {
             className="post__avatar" />
             <div className="post__topInfo">
                 <h3>{username}</h3>
-                <p>{timeStamp}</p>    
+                <p>{new Date(timestamp?.toDate()).toUTCString()}</p>    
             </div>
         </div>
         <div className="post__bottom">

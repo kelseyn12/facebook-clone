@@ -8,12 +8,14 @@ import ChatIcon from '@mui/icons-material/Chat';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import { ExpandMoreOutlined } from '@mui/icons-material';
+import { useStateValue } from './StateProvider';
 
 
 function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className='sidebar'>
-        <SidebarRow src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sCAvrW1yFi0UYMgTZb113I0SwtW0dpby8Q&usqp=CAU' title='Kelsey' />
+        <SidebarRow src={user.photoURL} title={user.displayName} />
         <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
         <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
         <SidebarRow Icon={PeopleIcon} title='Friends' />
